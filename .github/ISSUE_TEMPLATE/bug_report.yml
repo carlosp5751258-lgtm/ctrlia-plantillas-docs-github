@@ -1,0 +1,75 @@
+name: 🐛 Reporte de error
+description: Algo no funciona como debería.
+title: "[Error]: "
+labels: ["bug", "por-clasificar"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ¡Gracias por tomarte el tiempo de reportarlo! Antes de enviar, busca si ya existe un issue parecido.
+        **¿Es una vulnerabilidad de seguridad?** No la publiques aquí: sigue las instrucciones de SECURITY.md.
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: ¿Qué pasó?
+      description: Describe el error de forma clara y concisa.
+      placeholder: Al exportar a CSV, las fechas aparecen un día antes.
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducirlo
+      description: Lo mínimo necesario para que podamos ver el error.
+      placeholder: |
+        1. Ejecuta `...`
+        2. Abre `...`
+        3. Mira el resultado
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: ¿Qué esperabas que pasara?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versión
+      description: Salida de `--version` o versión del paquete.
+      placeholder: "1.4.2"
+    validations:
+      required: true
+  - type: dropdown
+    id: sistema
+    attributes:
+      label: Sistema operativo
+      multiple: true
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Otro
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs o mensajes de error
+      description: Pega la salida relevante. Se formateará como código automáticamente. Revisa que no incluya contraseñas ni tokens.
+      render: shell
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Contexto adicional
+      description: Capturas, configuración, cualquier cosa que ayude.
+  - type: checkboxes
+    id: verificaciones
+    attributes:
+      label: Verificaciones
+      options:
+        - label: Busqué en los issues existentes y no encontré uno igual.
+          required: true
+        - label: Acepto seguir el Código de Conducta del proyecto.
+          required: true
